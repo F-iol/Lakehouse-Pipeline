@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.10
+    container_name: kafka_broker
+    command:
+      - redpanda
+      - start
+      - --kafka-addr
+      - internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr
+      - internal://kafka_broker:9092,external://localhost:19092
+      - --pandaproxy-addr
+      - 0.0.0.0:8082
+      - --advertise-pandaproxy-addr
+      - localhost:8082
+      - --mode
+      - dev-container
+      - --smp
+      - "1"
+
+    ports:
+      - "19092:19092"
+      - "8082:8082"
+
+  console:
+    image: docker.redpanda.com/redpandadata/console:v2.4.3
+    container_name: kafka_ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_BROKERS: kafka_broker:9092
+    depends_on:
+      - redpanda
