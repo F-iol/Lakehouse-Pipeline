@@ -7,8 +7,8 @@ Initial Diagram for project architecture
 flowchart TD
     A[Python Event Producer] --> B[Kafka Topic]
     B --> C[PySpark Structured Streaming]
-    C --> D[AWS S3]
-    D --> E[Snowflake Bronze Layer]
+    C --> D[Localhost]
+    C --> E[AWS S3]
     E --> F[dbt Silver & Gold]
     G[Airflow] --> F
 ```
