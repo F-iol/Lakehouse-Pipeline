@@ -38,7 +38,7 @@ resource "aws_s3_bucket" "glue_config" {
 #################### CATALOG
 
 resource "aws_glue_catalog_database" "lakehouse_catalog" {
-    name = "${var.project_name}_catalog_${var.suffix}"
+    name = "lakehouse_project_catalog_${var.suffix}"
   
 }
 

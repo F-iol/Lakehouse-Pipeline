@@ -8,4 +8,5 @@ dependencies = [
     "faker>=40.36.0",
     "kafka-python>=3.0.10",
     "pyspark==3.5.8",
+    "python-dotenv>=1.2.2",
 ]
