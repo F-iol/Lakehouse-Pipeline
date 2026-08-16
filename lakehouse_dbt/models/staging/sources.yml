@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: lakehouse_source
+    database: awsdatacatalog
+    schema: lakehouse_project_catalog_fiol
+    tables:
+      - name: bronze_orders

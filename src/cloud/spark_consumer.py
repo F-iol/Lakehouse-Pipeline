@@ -31,7 +31,12 @@ spark = (SparkSession.builder
 spark.sparkContext.setLogLevel("WARN")
 
 
-kafka_raw_df = spark.readStream.format('kafka').option('kafka.bootstrap.servers','localhost:19092').option('subscribe','raw_orders').option('startingOffsets','earliest').load()
+kafka_raw_df = (spark.readStream.format('kafka')
+                .option('kafka.bootstrap.servers','localhost:19092')
+                .option('subscribe','raw_orders')
+                .option('startingOffsets','earliest')
+                .option('failOnDataLoss','false')
+                .load())
 
 parsed_orders_df = (
                     kafka_raw_df

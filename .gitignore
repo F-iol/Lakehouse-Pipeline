@@ -16,4 +16,10 @@ terraform/.terraform
 *.backup
 *.hcl
 *.tfstate
+logs/
 .env
+lakehouse_dbt/macros
+lakehouse_dbt/seeds
+lakehouse_dbt/snapshots
+lakehouse_dbt/tests
+lakehouse_dbt/analyses

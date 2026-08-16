@@ -1,7 +1,12 @@
 
 # Project Overview
 
-Initial Diagram for project architecture
+Small project simulating streaming datalake pipeline built using Medalion architecture.  
+```producer.py``` simulates 24/7 traffic that ```spark_consumer.py``` streams into AWS s3 storage using Iceberg table format,
+all that is orchestrated by Airflow that once per day transforms stored data into silver and golden layers
+
+
+## Architecture Diagram
 
 ```mermaid
 flowchart TD
@@ -12,3 +17,4 @@ flowchart TD
     E --> F[dbt Silver & Gold]
     G[Airflow] --> F
 ```
+
